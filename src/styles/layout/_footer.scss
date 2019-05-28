@@ -1,0 +1,59 @@
+.wrapper_footer{
+	position: absolute;
+	width: 100%;
+	background-color: #111111;
+	.top{
+		@include flexbox;
+		justify-content: space-between;
+		border-bottom: 1px solid grey;
+		.logo{
+			color: white;
+			margin-left: 20px;
+			letter-spacing: 4px;
+			a{
+				text-decoration: none;
+	 			color: white;
+				display: block;
+				text-align: center;
+				padding: 21px 20px;
+			}	
+		}
+		.menu{
+			ul{
+				list-style-type: none;
+				li{
+					display: inline-block;
+					a{
+						text-decoration: none;
+	 					color: white;
+	 					display: block;
+	 					text-align: center;
+	 					padding: 21px 20px;
+					}	
+				}
+			}
+		}
+		.font{
+			margin-right: 10px;
+			a{
+				text-decoration: none;
+	 			color: white;
+				display: block;
+				text-align: center;
+				padding: 21px 20px;
+			}	
+		}
+		.logo,
+		.font{
+			@include flexbox;
+			@include align-items(center);
+		}
+	}
+	.bot{
+		@include flexbox;
+		@include align-items(center);
+		@include justify-content(center);
+		height: 60px;
+		color: lightgrey;
+	}
+}
