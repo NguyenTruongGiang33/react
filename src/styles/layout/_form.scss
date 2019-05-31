@@ -1,0 +1,39 @@
+form{
+	width: 250px;
+	height: 250px;
+	background-color: lightgrey;
+	position: absolute;
+	top:50%;
+	right:0;
+	text-align: center;
+	border: 1px solid grey;
+	.title{
+		height: 30px;
+		background-color: #bfc3ff;
+		display: flex;
+		justify-content: space-between;
+		align-items: center;
+		padding-left: 5px;
+		border-bottom: 1px solid grey;
+		.fa{
+			padding-right: 5px;
+		}
+	}
+	label{
+		display: block;
+		margin-bottom: 5px;
+	}
+	input{
+		border: 1px solid black;
+		padding: 8px 15px;
+		margin-bottom: 5px;
+		outline: none;
+		border-radius:15px;
+	}
+	button{
+		margin-top: 5px;
+		padding: 3px 20px;
+		border-radius: 10px;
+		border: 1px solid black;
+	}
+}
