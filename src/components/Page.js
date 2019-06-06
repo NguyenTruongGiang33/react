@@ -14,24 +14,29 @@ class Page extends Component {
 					title:"Using an Online Organizational Tool for your Book Club",
 					description:"Have you ever hosted a book club event that was poorly attended? You read the book, cooked a meal, prepared discussion questions - and no one showed up? Have months gone by with no book club meeting because of calendaring difficulties?"
 				},
-				{
-					id:2,
-					image:"https://static.independent.co.uk/s3fs-public/thumbnails/image/2017/09/12/11/naturo-monkey-selfie.jpg?w968h681",
-					title:"Using an Online Organizational Tool for your Book Club",
-					description:"Have you ever hosted a book club event that was poorly attended? You read the book, cooked a meal, prepared discussion questions - and no one showed up? Have months gone by with no book club meeting because of calendaring difficulties?"
-				}
 			],
 			isDisplayForm:false,
 		}
 	}
+
+	componentWillMount(){
+        if(localStorage && localStorage.getItem('postitem')){
+            var postitem = JSON.parse(localStorage.getItem('postitem'));
+            this.setState({
+                postitem : postitem
+            })
+        }   
+    }
 	onSubmit = (data) => {
 		var additem = this.state.postitem;
 		additem.push(data);
 		this.setState({
 			postitem : additem
 		});
-		console.log(data);
+		localStorage.setItem('postitem', JSON.stringify(additem));
+		
 	}
+	
 	OpenForm = () => {
 		this.setState({
 			isDisplayForm : !this.state.isDisplayForm
@@ -45,8 +50,7 @@ class Page extends Component {
 
     render(){
     	var isDisplayForm = this.state.isDisplayForm;
-
-    	let element = this.state.postitem.map((post,index) => (
+    	var element = this.state.postitem.map((post,index) => (
     		<div className="wrapper_item" key={index}>
     			<a href="@" className="link"><img src={post.image} alt="Error-Link-Img" className="img-item" width="350px" height="200px"/></a>
     			<a href="@"><h2 className="title-item">{post.title}</h2></a>

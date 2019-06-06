@@ -18,13 +18,16 @@ class FormAddItem extends Component {
             [name] : value
         });
     }
+
     onSubmit = (event) => {
         event.preventDefault();
         this.props.onSubmit(this.state);
     }
+
     CloseForm = () => {
         this.props.CloseForm();
     }
+    
   render() {
     return (
         <form onSubmit={this.onSubmit}>
